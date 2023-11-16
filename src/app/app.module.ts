@@ -5,9 +5,14 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HompageComponent } from './components/hompage/hompage.component';
+import { BlogComponent } from './components/blog/blog.component';
 
 import { RouterModule, Route } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 const routes: Route[] = [
   {
@@ -21,12 +26,15 @@ const routes: Route[] = [
     AppComponent,
     FooterComponent,
     NavbarComponent,
-    HompageComponent
+    HompageComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
 
   ],
   providers: [],

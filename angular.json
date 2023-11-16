@@ -100,6 +100,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Sherlock:build:production",
+            "firebaseProject": "baker-street-221-b",
+            "firebaseHostingSite": "baker-street-221-b"
+          }
         }
       }
     }

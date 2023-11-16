@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "baker-street-221-b": {
+      "hosting": {
+        "Sherlock": [
+          "baker-street-221-b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "baker-street-221-b"
+  }
+}

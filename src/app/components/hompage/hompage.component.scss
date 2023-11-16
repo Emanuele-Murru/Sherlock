@@ -1,0 +1,65 @@
+.headers {
+  color: #fffffe;
+}
+
+.intro {
+  color: #f9bc60;
+  animation: slide-fwd-center 0.45s cubic-bezier(0.550, 0.055, 0.675, 0.190) both;
+    @keyframes slide-fwd-center {
+      0% {
+        transform: translateZ(0);
+      }
+      100% {
+        transform: translateZ(160px);
+      }
+    }
+}
+
+.text {
+  color: #abd1c6;
+  font-size: 2rem;
+}
+
+.paragraph {
+  color: #e8e4e6;
+}
+
+.green {
+  background-color: #004643;
+}
+
+.sherlock {
+  filter: drop-shadow(0 0 20px #121212);
+  width: 100%;
+  max-width: 700px;
+  max-height: 450px;
+  animation: slide-fwd-top 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    @keyframes slide-fwd-top {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-70px);
+      }
+    }
+}
+
+.blog {
+  background-color: #abd1c6;
+}
+
+.headline {
+  color: #001e1d;
+  font-weight: 600;
+  font-size: 2.3em;
+}
+
+.card {
+  background-color: #004643;
+}
+
+#carouselControls {
+  img {
+    max-height: 600px;
+  }
+}
