@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-hompage',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HompageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private firestore: Firestore) { }
 
   ngOnInit(): void {
   }

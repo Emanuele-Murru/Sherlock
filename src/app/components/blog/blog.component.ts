@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Firestore,
+collection,
+addDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-blog',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  constructor(private firestore: Firestore) { }
 
   ngOnInit(): void {
+  }
+
+  addData(f:any) {
+
+    const collectionInstance = this.firestore.collection(this.firestore, 'blog');
+
+    addDoc(collectionInstance, f.value)
+    .then(() => {
+      console.log("Data saved successfully");
+    })
+    .catch((err) => {
+      console.log(err);
+
+    })
+    console.log(f.value);
+
   }
 
 }

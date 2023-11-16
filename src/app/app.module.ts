@@ -19,6 +19,10 @@ const routes: Route[] = [
     path: '',
     component: HompageComponent
   },
+  {
+    path: 'blog',
+    component: BlogComponent
+  },
 ]
 
 @NgModule({

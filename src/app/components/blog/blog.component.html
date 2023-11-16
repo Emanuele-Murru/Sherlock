@@ -1,1 +1,13 @@
-<p>blog works!</p>
+<div class="container">
+  <div class="row">
+    <form #f="ngForm" (ngSubmit)="addData(f)">
+      <input type="text" name="name" placeholder="name" ngModel>
+      <br>
+      <input type="text" name="email" placeholder="email" ngModel>
+      <br>
+      <input type="password" name="password" placeholder="password" ngModel>
+      <br>
+      <button type="submit">Save Data</button>
+    </form>
+  </div>
+</div>
