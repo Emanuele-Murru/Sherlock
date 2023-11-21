@@ -8,11 +8,13 @@ import { HompageComponent } from './components/hompage/hompage.component';
 import { BlogComponent } from './components/blog/blog.component';
 
 import { RouterModule, Route } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 const routes: Route[] = [
   {
@@ -36,6 +38,9 @@ const routes: Route[] = [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(routes),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),

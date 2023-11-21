@@ -1,13 +1,28 @@
-<div class="container">
+<div class="container my5">
   <div class="row">
-    <form #f="ngForm" (ngSubmit)="addData(f)">
-      <input type="text" name="name" placeholder="name" ngModel>
+    <form [formGroup]="postForm">
+      <label for="title">Titolo</label>
+      <input type="text" class="input-group" required name="title" placeholder="titolo" formControlName="title">
       <br>
-      <input type="text" name="email" placeholder="email" ngModel>
+      <label for="date">Data</label>
+      <input type="text" class="input-group" name="date" placeholder="data" formControlName="date">
       <br>
-      <input type="password" name="password" placeholder="password" ngModel>
+      <label for="paragraph">Paragrafo</label>
+      <input type="text" class="input-group" name="paragraph" placeholder="paragrafo" formControlName="paragraph">
       <br>
-      <button type="submit">Save Data</button>
+      <button type="button" class="btn btn-primary" (click)="submit()" [disabled]="!postForm.valid" >Save Data</button>
     </form>
   </div>
+
+  <div class="row">
+    <div class="card col-12 my-3" *ngFor="let post of allPosts | async">
+      <h2 class="card-title">{{post.title}}</h2>
+      <span>{{post.date}}</span>
+      <p>{{post.paragraph}}</p>
+      <div class="card-footer">
+        <button type="button" (click)="deletePost(post.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+
 </div>
