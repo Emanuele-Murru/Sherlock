@@ -4,15 +4,6 @@
 
 .intro {
   color: #f9bc60;
-  animation: slide-fwd-center 0.45s cubic-bezier(0.550, 0.055, 0.675, 0.190) both;
-    @keyframes slide-fwd-center {
-      0% {
-        transform: translateZ(0);
-      }
-      100% {
-        transform: translateZ(160px);
-      }
-    }
 }
 
 .text {

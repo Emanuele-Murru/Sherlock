@@ -6,6 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HompageComponent } from './components/hompage/hompage.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { PostDetailsComponent } from './components/postDetails/postDetails.component';
 
 import { RouterModule, Route } from '@angular/router';
 
@@ -25,6 +26,10 @@ const routes: Route[] = [
     path: 'blog',
     component: BlogComponent
   },
+  {
+    path: 'postDetails/:postId',
+    component: PostDetailsComponent
+  }
 ]
 
 @NgModule({
@@ -33,7 +38,8 @@ const routes: Route[] = [
     FooterComponent,
     NavbarComponent,
     HompageComponent,
-    BlogComponent
+    BlogComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,

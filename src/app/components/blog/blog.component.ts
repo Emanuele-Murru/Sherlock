@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Firestore, collectionData } from '@angular/fire/firestore';
-import { CollectionReference, collection, DocumentData, addDoc, deleteDoc, doc, updateDoc } from '@firebase/firestore';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Post } from '../models/post.interface';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
@@ -26,7 +25,7 @@ export class BlogComponent implements OnInit {
   // selectedPost$?: Post;
   // selectedPost!: Post;
 
-  constructor(private firestore: Firestore, private db: AngularFirestore, private fb: FormBuilder, private firebaseSrv: FirebaseService) {
+  constructor(private db: AngularFirestore, private fb: FormBuilder, private firebaseSrv: FirebaseService, private router: Router) {
     this.postForm = this.fb.group({
       title:['', Validators.required],
       date:['', Validators.required],
@@ -70,6 +69,11 @@ export class BlogComponent implements OnInit {
     console.log(postId);
 
     this.loadAllPosts();
+  }
+
+  goToDetails(postId: string) {
+    console.log(postId);
+    this.router.navigate(['postDetails', postId]);
   }
 
 }
