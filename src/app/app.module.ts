@@ -20,16 +20,16 @@ import { environment } from '../environments/environment';
 const routes: Route[] = [
   {
     path: '',
-    component: HompageComponent
+    component: HompageComponent,
   },
   {
     path: 'blog',
     component: BlogComponent
   },
-  {
-    path: 'postDetails/:postId',
-    component: PostDetailsComponent
-  }
+  // {
+  //   path: 'postDetails/:postId',
+  //   component: PostDetailsComponent
+  // }
 ]
 
 @NgModule({

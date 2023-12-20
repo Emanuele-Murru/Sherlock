@@ -21,9 +21,9 @@
       <div class="card col-12 my-3" *ngFor="let post of allPosts | async">
         <h2 class="card-title">{{post.title}}</h2>
         <span>{{post.date}}</span>
-        <button [routerLink]="['/pageDetails']" (click)="goToDetails(post.id)" class="btn m-2"> Info
-        </button>
-        <!-- <p>{{post.paragraph}}</p> -->
+        <!-- <button [routerLink]="['/pageDetails']" (click)="goToDetails(post.id)" class="btn m-2"> Info
+        </button> -->
+        <p>{{post.paragraph}}</p>
         <!-- <div class="card-footer">
           <button type="button" class="btn btn-primary" (click)="deletePost(post.id)">Delete</button>
         </div> -->
