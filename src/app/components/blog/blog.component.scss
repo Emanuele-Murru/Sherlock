@@ -1,7 +1,17 @@
 .container {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  // font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Helvetica', sans-serif;
 }
 
 .green {
   background-color: #004643;
+}
+
+.paragraph {
+  line-height: 1.9;
+  overflow-wrap: break-word;
+}
+
+.card {
+  background-color: #fff6cc;
 }

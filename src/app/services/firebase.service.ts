@@ -24,6 +24,8 @@ export class FirebaseService {
   getAllPosts(): Observable<Post[]> {
     const collectionInstance = collection(this.fs, 'Posts');
     return collectionData(collectionInstance) as Observable<Post[]>;
+    console.log(collectionData(collectionInstance));
+
   }
 
   deletePost(id: string) {

@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Post } from '../models/post.interface';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-blog',
@@ -25,7 +26,7 @@ export class BlogComponent implements OnInit {
   // selectedPost$?: Post;
   // selectedPost!: Post;
 
-  constructor(private db: AngularFirestore, private fb: FormBuilder, private firebaseSrv: FirebaseService, private router: Router) {
+  constructor(private db: AngularFirestore, private fb: FormBuilder, private firebaseSrv: FirebaseService, private router: Router, private spinner: NgxSpinnerService) {
     this.postForm = this.fb.group({
       title:['', Validators.required],
       date:['', Validators.required],
@@ -34,6 +35,10 @@ export class BlogComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2500)
     this.loadAllPosts();
     this.setForm();
   }
@@ -62,6 +67,7 @@ export class BlogComponent implements OnInit {
 
   loadAllPosts() {
     this.allPosts = this.firebaseSrv.getAllPosts();
+    // this.spinner.hide();
   }
 
   deletePost(postId: string) {

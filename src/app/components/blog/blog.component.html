@@ -1,5 +1,8 @@
 <div class="green">
   <div class="container my5">
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-scale-multiple" [fullScreen]="true">
+      <p style="color: white"> Sto caricando... </p>
+    </ngx-spinner>
     <!---------------------------------- FORM ----------------------------------->
     <!-- <div class="row">
       <form [formGroup]="postForm">
@@ -18,12 +21,14 @@
 
     <!---------------------------------- POSTS --------------------------------->
     <div class="row">
-      <div class="card col-12 my-3" *ngFor="let post of allPosts | async">
-        <h2 class="card-title">{{post.title}}</h2>
-        <span>{{post.date}}</span>
+      <div class="card p-4 col-12 my-3" *ngFor="let post of allPosts | async">
+        <div class="py-3">
+          <h2 class="card-title">{{post.title}}</h2>
+          <span class="text-body-tertiary">{{post.date}}</span>
+        </div>
         <!-- <button [routerLink]="['/pageDetails']" (click)="goToDetails(post.id)" class="btn m-2"> Info
         </button> -->
-        <p>{{post.paragraph}}</p>
+        <p class="text-wrap paragraph">{{post.paragraph}}</p>
         <!-- <div class="card-footer">
           <button type="button" class="btn btn-primary" (click)="deletePost(post.id)">Delete</button>
         </div> -->
