@@ -9,7 +9,15 @@ import { Router } from '@angular/router';
 })
 export class HompageComponent implements OnInit {
 
-  constructor(private firestore: Firestore, private router: Router) { }
+  ngxScrollToDuration: number;
+  ngxScrollToEasing: string;
+
+  constructor(private firestore: Firestore, private router: Router) {
+
+    this.ngxScrollToDuration = 1500;
+    this.ngxScrollToEasing = 'EaseInOutQuint';
+
+  }
 
   ngOnInit(): void {
   }

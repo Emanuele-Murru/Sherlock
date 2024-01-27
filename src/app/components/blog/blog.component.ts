@@ -6,11 +6,35 @@ import { Post } from '../models/post.interface';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
+import { state, style, trigger, transition, animate, } from '@angular/animations';
 
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.scss']
+  styleUrls: ['./blog.component.scss'],
+  animations: [
+    trigger('slideInFromLeft', [
+      transition(':enter', [
+        style({
+          transform: 'translateX(-100%)'
+        }),
+        animate('1500ms ease-out',
+        style({
+          transform: 'translateX(0)'
+        }))
+      ])
+    ]),
+    trigger('slideDown', [
+      transition(':enter', [
+        style({
+          transform: 'translateY(-80%)'
+        }),
+        animate('1500ms ease-out', style({
+          tranform: 'translateY(0)'
+        }))
+      ])
+    ])
+  ]
 })
 export class BlogComponent implements OnInit {
 
@@ -25,6 +49,12 @@ export class BlogComponent implements OnInit {
   allPosts!: Observable<Post[]>;
   // selectedPost$?: Post;
   // selectedPost!: Post;
+
+  openCardId: string | null= null;
+
+  toggleCard(post: Post): void {
+    this.openCardId = this.openCardId === post.id ? null : post.id;
+  }
 
   constructor(private db: AngularFirestore, private fb: FormBuilder, private firebaseSrv: FirebaseService, private router: Router, private spinner: NgxSpinnerService) {
     this.postForm = this.fb.group({

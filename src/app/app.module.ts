@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 const routes: Route[] = [
   {
@@ -54,7 +55,7 @@ const routes: Route[] = [
     RouterModule.forRoot(routes),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
-
+    ScrollToModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

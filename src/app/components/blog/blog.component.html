@@ -20,21 +20,25 @@
     </div> -->
 
     <!---------------------------------- POSTS --------------------------------->
-    <div class="text-center text-white py-5">
+    <div class="text-center text-white py-5" [@slideDown]>
       <h1>POSTS</h1>
     </div>
     <div class="row">
-      <div class="card p-4 col-12 my-3" *ngFor="let post of allPosts | async">
-        <div class="py-3">
-          <h2 class="card-title">{{post.title}}</h2>
+      <div class="card p-4 col-12 my-3" *ngFor="let post of allPosts | async" [@slideInFromLeft]>
+        <h2 class="card-title text-center">{{post.title}}</h2>
+        <div class="py-3" *ngIf="openCardId === post.id">
           <span class="text-body-tertiary">{{post.date}}</span>
+          <p class="text-wrap paragraph">{{post.paragraph}}</p>
         </div>
         <!-- <button [routerLink]="['/pageDetails']" (click)="goToDetails(post.id)" class="btn m-2"> Info
         </button> -->
-        <p class="text-wrap paragraph">{{post.paragraph}}</p>
-        <!-- <div class="card-footer">
-          <button type="button" class="btn btn-primary" (click)="deletePost(post.id)">Delete</button>
-        </div> -->
+        <div class="text-center">
+          <button class="btn btn-primary mt-4" (click)="toggleCard(post)">{{ openCardId === post.id ? 'Chiudi' :
+            'Leggi di più' }}</button>
+            <!-- <div class="card-footer">
+              <button type="button" class="btn btn-primary" (click)="deletePost(post.id)">Delete</button>
+            </div> -->
+        </div>
       </div>
     </div>
 
