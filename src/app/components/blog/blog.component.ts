@@ -51,7 +51,6 @@ export class BlogComponent implements OnInit {
   // selectedPost!: Post;
 
   openCardId: string | null= null;
-
   toggleCard(post: Post): void {
     this.openCardId = this.openCardId === post.id ? null : post.id;
   }
