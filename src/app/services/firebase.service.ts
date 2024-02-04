@@ -25,7 +25,6 @@ export class FirebaseService {
     const collectionInstance = collection(this.fs, 'Posts');
     return collectionData(collectionInstance) as Observable<Post[]>;
     console.log(collectionData(collectionInstance));
-
   }
 
   deletePost(id: string) {
@@ -36,45 +35,11 @@ export class FirebaseService {
     })
   }
 
-  // getPostById(postId: string): Observable<Post | null> {
-  //   const postDocRef: DocumentReference<Post> = this.ngFirebase.collection('Posts').doc(postId).ref;
-
-  //   return new Observable(observer => {
-  //     postDocRef.get().then((docSnapshot: DocumentSnapshot<Post>) => {
-  //       if (docSnapshot.exists()) {
-  //         const post = { id: docSnapshot.id, ...docSnapshot.data() } as Post;
-  //         observer.next(post);
-  //       } else {
-  //         observer.next(null);
-  //       }
-  //       observer.complete();
-  //     }).catch(error => {
-  //       observer.error(error);
-  //       observer.complete();
-  //     });
-  //   });
-  // }
-
-  // async getPostById(postId: string) {
-
-  //   const docRef = doc(this.fs, 'Posts', postId);
-  //   const docSnap = await getDoc(docRef);
-
-  //   if (docSnap.exists()) {
-  //     console.log("Document data:", docSnap.data());
-  //   } else {
-  //     console.log("No document found");
-  //   }
-  // }
-
   async getPostById(postId: string) {
     const q = query(collection(this.fs, 'Posts'), where("id", "==", true));
-
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       console.log(doc.id, " => ", doc.data());
-
     })
   }
-
 }
