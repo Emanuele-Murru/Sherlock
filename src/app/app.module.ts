@@ -8,7 +8,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HompageComponent } from './components/hompage/hompage.component';
 import { BlogComponent } from './components/blog/blog.component';
-import { PostDetailsComponent } from './components/postDetails/postDetails.component';
 
 import { RouterModule, Route } from '@angular/router';
 
@@ -23,16 +22,17 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 const routes: Route[] = [
   {
     path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
     component: HompageComponent,
   },
   {
     path: 'blog',
     component: BlogComponent
-  },
-  // {
-  //   path: 'postDetails/:postId',
-  //   component: PostDetailsComponent
-  // }
+  }
 ]
 
 @NgModule({
@@ -41,8 +41,7 @@ const routes: Route[] = [
     FooterComponent,
     NavbarComponent,
     HompageComponent,
-    BlogComponent,
-    PostDetailsComponent
+    BlogComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +51,7 @@ const routes: Route[] = [
     ReactiveFormsModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     ScrollToModule.forRoot()

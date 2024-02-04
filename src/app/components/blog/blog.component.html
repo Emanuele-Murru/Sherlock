@@ -30,11 +30,10 @@
           <span class="text-body-tertiary">{{post.date}}</span>
           <p class="text-wrap paragraph">{{post.paragraph}}</p>
         </div>
-        <!-- <button [routerLink]="['/pageDetails']" (click)="goToDetails(post.id)" class="btn m-2"> Info
-        </button> -->
-        <div class="text-center">
-          <button class="btn btn-primary mt-4" (click)="toggleCard(post)">{{ openCardId === post.id ? 'Chiudi' :
-            'Leggi di più' }}</button>
+        <div class="d-flex justify-content-center">
+          <button (click)="toggleCard(post)" class="btn m-2"> {{ openCardId === post.id ? 'Chiudi' : 'Leggi di più' }}
+            <span></span>
+          </button>
             <!-- <div class="card-footer">
               <button type="button" class="btn btn-primary" (click)="deletePost(post.id)">Delete</button>
             </div> -->

@@ -22,8 +22,8 @@ export class HompageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToBlog():void {
-    this.router.navigate(['/blog']);
+  redirectToBLog(): void {
+      this.router.navigateByUrl('/blog');
   }
 
 }

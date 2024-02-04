@@ -16,7 +16,7 @@ import { state, style, trigger, transition, animate, } from '@angular/animations
     trigger('slideInFromLeft', [
       transition(':enter', [
         style({
-          transform: 'translateX(-100%)'
+          transform: 'translateX(-80%)'
         }),
         animate('1500ms ease-out',
         style({
@@ -29,8 +29,8 @@ import { state, style, trigger, transition, animate, } from '@angular/animations
         style({
           transform: 'translateY(-80%)'
         }),
-        animate('1500ms ease-out', style({
-          tranform: 'translateY(0)'
+        animate('1600ms ease-out', style({
+          transform: 'translateY(0)'
         }))
       ])
     ])
@@ -47,8 +47,6 @@ export class BlogComponent implements OnInit {
   }
 
   allPosts!: Observable<Post[]>;
-  // selectedPost$?: Post;
-  // selectedPost!: Post;
 
   openCardId: string | null= null;
   toggleCard(post: Post): void {
@@ -102,13 +100,6 @@ export class BlogComponent implements OnInit {
   deletePost(postId: string) {
     this.firebaseSrv.deletePost(postId);
     console.log(postId);
-
     this.loadAllPosts();
   }
-
-  goToDetails(postId: string) {
-    console.log(postId);
-    this.router.navigate(['postDetails', postId]);
-  }
-
 }
